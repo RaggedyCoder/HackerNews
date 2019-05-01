@@ -1,5 +1,6 @@
 package com.hacker.news.api
 
+import com.hacker.news.BuildConfig
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -25,7 +26,7 @@ class ApiConstantsTest {
 
     @Test
     fun testApiConstantHackerNewsBaseUrl() {
-        Assert.assertEquals("https://hacker-news.firebaseio.com", ApiConstants.HACKER_NEWS_BASE_URL)
+        Assert.assertEquals(BuildConfig.HACKER_NEWS_BASE_URL, ApiConstants.HACKER_NEWS_BASE_URL)
     }
 
     @Test

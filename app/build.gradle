@@ -22,6 +22,14 @@ android {
         versionName appProperties.APP_VERSION_NAME
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        def buildVariant = getBuildVariant().toLowerCase()
+        def envPropertiesFile = rootProject.file("${buildVariant}.properties")
+        def envProperties = new Properties()
+        envProperties.load(new FileInputStream(envPropertiesFile))
+        for (String key : envProperties.keySet()) {
+            buildConfigField "String", key, "\"${envProperties[key]}\""
+        }
     }
     buildTypes {
         release {

@@ -130,3 +130,16 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+def getBuildVariant() {
+    for (TaskExecutionRequest t : gradle.getStartParameter().getTaskRequests()) {
+        for (String command : t.args) {
+            if (command.matches(":app:generate(.*)Sources")) {
+                return command.replaceAll(":app:generate(.*)Sources", "\$1")
+            } else if (command.matches(":app:assemble(.*)")) {
+                return command.replaceAll(":app:assemble(.*)", "\$1")
+            }
+        }
+    }
+    return "Release"
+}

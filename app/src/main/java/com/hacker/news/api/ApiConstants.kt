@@ -1,5 +1,7 @@
 package com.hacker.news.api
 
+import com.hacker.news.BuildConfig
+
 object ApiConstants {
 
 
@@ -9,7 +11,7 @@ object ApiConstants {
 
     const val USER_ID_PATH_PARAM = "userId"
 
-    const val HACKER_NEWS_BASE_URL = "https://hacker-news.firebaseio.com"
+    const val HACKER_NEWS_BASE_URL = BuildConfig.HACKER_NEWS_BASE_URL
 
     const val API_VERSION_V0 = "/v0"
 
