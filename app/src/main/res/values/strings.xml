@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Hacker News</string>
+
+    <string name="retry">Retry</string>
+    <string name="offline_please_check_connection">Offline… Please check your connection</string>
+    <string name="top_stories">Top Stories</string>
+    <string name="new_stories">New Stories</string>
+    <string name="best_stories">Best Stories</string>
+    <string name="ask_stories">Ask Stories</string>
+    <string name="show_stories">Show Stories</string>
+    <string name="job_stories">Job Stories</string>
+
+    <string name="no_internet_connection_message">No Internet Connection Available</string>
+    <string name="unable_to_parse_server_message">Unable to parse message from the server</string>
+    <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="unknown_error">Unknown Error</string>
+    <string name="unable_to_retry">Unable to retry at this moment</string>
+    <string name="unable_to_refresh">Unable to refresh at this moment</string>
+    <string name="no_title_available">No Title Available</string>
+    <string name="no_comments">No Comments</string>
+    <string name="no_submissions">No Submissions</string>
+    <string name="no_replies">No Replies</string>
+    <string name="open_link">Open Link</string>
+    <string name="no_more_items_available">No More Items Available</string>
+    <string name="show_about">Show About</string>
+    <string name="user_created_time_holder">Created at: %1$s</string>
+    <string name="user_about">User About</string>
+    <string name="poll_options">Poll Options</string>
+    <string name="please_wait">Please Wait…</string>
+    <string name="fetching_user_profile">User Profile Fetching…</string>
+    <string name="fetching_stories">Fetching Stories…</string>
+</resources>

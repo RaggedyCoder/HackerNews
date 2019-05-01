@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="comments">
+        <item quantity="zero">@string/no_comments</item>
+        <item quantity="one">%1$s Comment</item>
+        <item quantity="other">%1$s Comments</item>
+    </plurals>
+
+    <plurals name="replies">
+        <item quantity="zero">@string/no_replies</item>
+        <item quantity="one">%1$s Reply</item>
+        <item quantity="other">%1$s Replies</item>
+    </plurals>
+
+    <plurals name="submissions">
+        <item quantity="zero">@string/no_submissions</item>
+        <item quantity="one">%1$s Submission</item>
+        <item quantity="other">%1$s Submissions</item>
+    </plurals>
+
+    <plurals name="points">
+        <item quantity="one">%1$s Point</item>
+        <item quantity="other">%1$s Points</item>
+    </plurals>
+</resources>
