@@ -1,0 +1,132 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext.kotlin_version = '1.3.31'
+
+    def dependenciesVersionPropertiesFile = rootProject.file("dependencies-versions.properties")
+    def dependenciesVersionProperties = new Properties()
+    dependenciesVersionProperties.load(new FileInputStream(dependenciesVersionPropertiesFile))
+
+    ext.versions = [
+            'kotlinVersion'                        : dependenciesVersionProperties.KOTLIN_GRADLE_PLUGIN_VERSION,
+            'androidBuildToolsVersion'             : dependenciesVersionProperties.ANDROID_BUILD_TOOLS_VERSION,
+            'navigationSafeArgsGradlePluginVersion': dependenciesVersionProperties.NAVIGATION_SAFE_ARGS_GRADLE_PLUGIN_VERSION,
+            'retrofit2Version'                     : dependenciesVersionProperties.RETROFIT2_VERSION,
+            'okHttp3Version'                       : dependenciesVersionProperties.OKHTTP3_VERSION,
+            'daggerVersion'                        : dependenciesVersionProperties.DAGGER_VERSION,
+            'kotlinxCoroutineVersion'              : dependenciesVersionProperties.KOTLINX_COROUTINE_VERSION,
+            'rxJavaAndroidVersion'                 : dependenciesVersionProperties.RXJAVA2_ANDROID_VERSION,
+            'rxjavaVersion'                        : dependenciesVersionProperties.RXJAVA2_CORE_VERSION,
+            'gsonVersion'                          : dependenciesVersionProperties.GSON_VERSION,
+            'androidArchPagingVersion'             : dependenciesVersionProperties.ANDROID_ARCH_PAGING_VERSION,
+            'androidArchLifecycleExtVersion'       : dependenciesVersionProperties.ANDROID_ARCH_LIFECYCLE_EXT_VERSION,
+            'androidArchNavigationVersion'         : dependenciesVersionProperties.ANDROID_ARCH_NAVIGATION_VERSION,
+            'androidMaterialDesignVersion'         : dependenciesVersionProperties.ANDROID_MATERIAL_DESIGN_VERSION,
+            'androidxCardViewVersion'              : dependenciesVersionProperties.ANDROIDX_CARD_VIEW_VERSION,
+            'androidxMultidexVersion'              : dependenciesVersionProperties.ANDROIDX_MULTIDEX_VERSION,
+            'androidxBrowserVersion'               : dependenciesVersionProperties.ANDROIDX_BROWSER_VERSION,
+            'androidxCoreKtxVersion'               : dependenciesVersionProperties.ANDROIDX_CORE_KTX_VERSION,
+            'androidxAppCompatVersion'             : dependenciesVersionProperties.ANDROIDX_APPCOMPAT_VERSION,
+            'androidxRecyclerViewVersion'          : dependenciesVersionProperties.ANDROIDX_VECTOR_RECYCLER_VIEW_VERSION,
+            'androidxVectorDrawableVersion'        : dependenciesVersionProperties.ANDROIDX_VECTOR_DRAWABLE_VERSION,
+            'androidxConstraintLayoutVersion'      : dependenciesVersionProperties.ANDROIDX_CONSTRAINT_LAYOUT_VERSION,
+            'junitVersion'                         : dependenciesVersionProperties.JUNIT_VERSION,
+            'robolectricVersion'                  : dependenciesVersionProperties.ROBO_ELECTRIC_VERSION,
+            'mockitoVersion'                       : dependenciesVersionProperties.MOCKITO_VERSION,
+            'androidXTestVerion'                   : dependenciesVersionProperties.ANDROIDX_TEST_VERSION,
+            'androidXEspressoVersion'              : dependenciesVersionProperties.ANDROIX_ESPRESSO_VERSION,
+    ]
+
+    ext.deps = [
+            "androidBuildTools"             : "com.android.tools.build:gradle:${versions.androidBuildToolsVersion}",
+            "kotlinGradlePlugin"            : "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlinVersion}",
+            "kotlinSTDLib"                  : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlinVersion}",
+            "navigationSafeArgsGradlePlugin": "androidx.navigation:navigation-safe-args-gradle-plugin:${versions.navigationSafeArgsGradlePluginVersion}",
+
+            // Retrofit
+            "retrofitCore"                  : "com.squareup.retrofit2:retrofit:${versions.retrofit2Version}",
+            "retrofitGsonConverter"         : "com.squareup.retrofit2:converter-gson:${versions.retrofit2Version}",
+            "retrofitRxJava2Adapter"        : "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit2Version}",
+
+            //OkHttp3
+            "okHttp3LoggingInterceptor"     : "com.squareup.okhttp3:logging-interceptor:${versions.okHttp3Version}",
+
+            // Dagger
+            "daggerAndroid"                 : "com.google.dagger:dagger-android:${versions.daggerVersion}",
+            "daggerAndroidSupport"          : "com.google.dagger:dagger-android-support:${versions.daggerVersion}",
+            "daggerCompiler"                : "com.google.dagger:dagger-compiler:${versions.daggerVersion}",
+            "daggerAndroidProcessor"        : "com.google.dagger:dagger-android-processor:${versions.daggerVersion}",
+
+            // Coroutines
+            "coroutinesCore"                : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.kotlinxCoroutineVersion}",
+            "coroutinesAndroid"             : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.kotlinxCoroutineVersion}",
+
+            //RxJava2
+            "rxJavaAndroid"                 : "io.reactivex.rxjava2:rxandroid:${versions.rxJavaAndroidVersion}",
+            "rxjava"                        : "io.reactivex.rxjava2:rxjava:${versions.rxjavaVersion}",
+
+            //Gson
+            "gson"                          : "com.google.code.gson:gson:${versions.kotlinxCoroutineVersion}",
+
+            // Paging
+            "androidArchPagingRuntime"      : "androidx.paging:paging-runtime-ktx:${versions.androidArchPagingVersion}",
+
+            // Lifecycle ext
+            "androidArchLifecycleExt"       : "androidx.lifecycle:lifecycle-extensions:${versions.androidArchLifecycleExtVersion}",
+
+            // Navigation
+            "androidArchNavigationUi"       : "android.arch.navigation:navigation-ui-ktx:${versions.androidArchNavigationVersion}",
+            "androidArchNavigationFragment" : "android.arch.navigation:navigation-fragment-ktx:${versions.androidArchNavigationVersion}",
+
+            // Material Design
+            "androidMaterialDesign"         : "com.google.android.material:material:${versions.androidMaterialDesignVersion}",
+
+            // Core Libraries
+            "androidxCardView"              : "androidx.cardview:cardview:${versions.androidxCardViewVersion}",
+            "androidxMultidex"              : "androidx.multidex:multidex:${versions.androidxMultidexVersion}",
+            "androidxBrowser"               : "androidx.browser:browser:${versions.androidxBrowserVersion}",
+            "androidxCoreKtx"               : "androidx.core:core-ktx:${versions.androidxCoreKtxVersion}",
+            "androidxAppCompat"             : "androidx.appcompat:appcompat:${versions.androidxAppCompatVersion}",
+            "androidxRecyclerView"          : "androidx.recyclerview:recyclerview:${versions.androidxRecyclerViewVersion}",
+            "androidxVectorDrawable"        : "androidx.vectordrawable:vectordrawable:${versions.androidxVectorDrawableVersion}",
+            "androidxConstraintLayout"      : "androidx.constraintlayout:constraintlayout:${versions.androidxConstraintLayoutVersion}",
+
+            "junit"                         : "junit:junit:${versions.junitVersion}",
+
+            "robolectric"                   : "org.robolectric:robolectric:${versions.robolectricVersion}",
+
+            "mockitoCore"                   : "org.mockito:mockito-core:${versions.mockitoVersion}",
+            "mockitoAndroid"                : "org.mockito:mockito-android:${versions.mockitoVersion}",
+
+            "okHttp3MockServer"             : "com.squareup.okhttp3:mockwebserver:${versions.okHttp3Version}",
+
+            "androidXTestRunner"            : "androidx.test:runner:${versions.androidXTestVerion}",
+            "androidXTestRules"             : "androidx.test:rules:${versions.androidXTestVerion}",
+
+            "androidXEspressoCore"          : "androidx.test.espresso:espresso-core:${versions.androidXEspressoVersion}",
+            "androidXEspressoContrib"       : "androidx.test.espresso:espresso-contrib:${versions.androidXEspressoVersion}",
+
+    ]
+
+    repositories {
+        google()
+        jcenter()
+
+    }
+    dependencies {
+        classpath deps.androidBuildTools
+        classpath deps.kotlinGradlePlugin
+        classpath deps.navigationSafeArgsGradlePlugin
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

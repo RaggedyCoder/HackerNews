@@ -1,0 +1,3 @@
+def appPropertiesFile = rootProject.file("dependencies-versions.properties")
+def appProperties = new Properties()
+appProperties.load(new FileInputStream(appPropertiesFile))

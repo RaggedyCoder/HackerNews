@@ -1,0 +1,100 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+android {
+    def appPropertiesFile = rootProject.file("app-properties.properties")
+    def appProperties = new Properties()
+    appProperties.load(new FileInputStream(appPropertiesFile))
+
+    compileSdkVersion appProperties.COMPILE_SDK_VERSION as int
+    defaultConfig {
+        applicationId "com.hacker.news"
+        minSdkVersion appProperties.MIN_SDK_VERSION as int
+        targetSdkVersion appProperties.TARGET_SDK_VERSION as int
+        versionCode appProperties.APP_VERSION_CODE as int
+        versionName appProperties.APP_VERSION_NAME
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+            unitTests.returnDefaultValues = true
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation deps.kotlinSTDLib
+    // Android
+    implementation deps.androidxCardView
+    implementation deps.androidxMultidex
+    implementation deps.androidxBrowser
+    implementation deps.androidxCoreKtx
+    implementation deps.androidxAppCompat
+    implementation deps.androidxRecyclerView
+    implementation deps.androidxVectorDrawable
+    implementation deps.androidxConstraintLayout
+
+    //Design
+    implementation deps.androidMaterialDesign
+
+    //Parser
+    implementation deps.gson
+
+    // Networking
+    implementation deps.retrofitCore
+    implementation deps.retrofitGsonConverter
+    implementation deps.retrofitRxJava2Adapter
+    implementation deps.okHttp3LoggingInterceptor
+
+    // RxJava
+    implementation deps.rxjava
+    implementation deps.rxJavaAndroid
+
+    // Android Arch Components
+    implementation deps.androidArchPagingRuntime
+    implementation deps.androidArchLifecycleExt
+    implementation deps.androidArchNavigationUi
+    implementation deps.androidArchNavigationFragment
+
+    // Dagger
+    implementation deps.daggerAndroid
+    implementation deps.daggerAndroidSupport
+
+    implementation deps.coroutinesCore
+    implementation deps.coroutinesAndroid
+
+    // Dagger Annotation Processor
+    kapt deps.daggerCompiler
+    kapt deps.daggerAndroidProcessor
+
+    testImplementation deps.junit
+
+    testImplementation deps.robolectric
+
+    testImplementation deps.mockitoCore
+    testImplementation deps.mockitoAndroid
+
+    testImplementation deps.okHttp3MockServer
+
+    androidTestImplementation deps.androidXTestRunner
+    androidTestImplementation deps.androidXTestRules
+
+    androidTestImplementation deps.androidXEspressoCore
+    androidTestImplementation deps.androidXEspressoContrib
+}
