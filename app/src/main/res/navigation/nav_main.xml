@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@+id/hackerNewsItemListFragment">
+
+    <fragment
+        android:id="@+id/hackerNewsItemListFragment"
+        android:name="com.hacker.news.ui.fragment.item.HackerNewsItemListFragment"
+        android:label="HackerNewsItemListFragment"
+        tools:layout="@layout/fragment_hacker_news_item_list">
+
+        <argument
+            android:name="storyName"
+            android:defaultValue="@null"
+            app:argType="com.hacker.news.util.Story"
+            app:nullable="true" />
+
+        <argument
+            android:name="itemKids"
+            android:defaultValue="@null"
+            app:argType="com.hacker.news.model.ItemKids"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/action_to_go_hackerNewsItemListFragment"
+            app:destination="@id/hackerNewsItemListFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+
+            <argument
+                android:name="storyName"
+                android:defaultValue="@null"
+                app:argType="com.hacker.news.util.Story"
+                app:nullable="true" />
+
+            <argument
+                android:name="itemKids"
+                android:defaultValue="@null"
+                app:argType="com.hacker.news.model.ItemKids"
+                app:nullable="true" />
+
+        </action>
+
+        <action
+            android:id="@+id/action_to_go_hackerNewsItemDescriptionFragment"
+            app:destination="@id/hackerNewsItemDescriptionFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+
+            <argument
+                android:name="itemInfo"
+                app:argType="com.hacker.news.api.response.ItemInfoResponse"
+                app:nullable="false" />
+
+        </action>
+
+        <action
+            android:id="@+id/action_to_go_hackerNewsUserProfileFragment"
+            app:destination="@id/hackerNewsUserProfileFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+
+            <argument
+                android:name="userId"
+                app:argType="string" />
+
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/hackerNewsItemDescriptionFragment"
+        android:name="com.hacker.news.ui.fragment.item.HackerNewsItemDescriptionFragment"
+        android:label="HackerNewsItemDescriptionFragment"
+        tools:layout="@layout/fragment_hacker_news_item_description">
+
+        <argument
+            android:name="itemInfo"
+            app:argType="com.hacker.news.api.response.ItemInfoResponse"
+            app:nullable="false" />
+
+        <action
+            android:id="@+id/action_to_go_hackerNewsItemListFragment"
+            app:destination="@id/hackerNewsItemListFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+
+            <argument
+                android:name="itemKids"
+                app:argType="com.hacker.news.model.ItemKids"
+                app:nullable="false" />
+        </action>
+
+        <action
+            android:id="@+id/action_to_go_hackerNewsUserProfileFragment"
+            app:destination="@id/hackerNewsUserProfileFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+
+            <argument
+                android:name="userId"
+                app:argType="string" />
+
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/hackerNewsUserProfileFragment"
+        android:name="com.hacker.news.ui.fragment.profile.HackerNewsUserProfileFragment"
+        android:label="HackerNewsUserProfileFragment"
+        tools:layout="@layout/fragment_hacker_news_user_profile">
+
+        <argument
+            android:name="userId"
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_to_go_hackerNewsItemListFragment"
+            app:destination="@id/hackerNewsItemListFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+
+            <argument
+                android:name="itemKids"
+                android:defaultValue="@null"
+                app:argType="com.hacker.news.model.ItemKids"
+                app:nullable="true" />
+
+        </action>
+    </fragment>
+</navigation>
